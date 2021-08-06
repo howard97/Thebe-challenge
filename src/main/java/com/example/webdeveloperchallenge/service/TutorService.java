@@ -50,7 +50,7 @@ public class TutorService implements ITutorService {
         Map<String, Object> response = new HashMap<>();
         if(checkTutor(formDto.getEmail())){
             response.put( Responses.ResponseHeaderStatus, Responses.ResponseStatusError );
-            response.put( Responses.ResponseHeaderMessage, " is Already a member on the system!" );
+            response.put( Responses.ResponseHeaderMessage, formDto.getFirstName() + " " + formDto.getLastName() + " is Already a member on the system!" );
             response.put( Responses.ResponseHeaderData, 507 );
             return response;
         }
@@ -76,6 +76,11 @@ public class TutorService implements ITutorService {
     public ResponseEntity<Tutor> getTutorById(Long id) {
         Tutor tutor = tutorRepository.findById(id).orElseThrow(()-> new CustomsException("STUDENT NOT FOUND WITH ID ", ErrorCode.ERR_602));;
         return ResponseEntity.ok(tutor);
+    }
+
+    @Override
+    public Tutor getTutor(Long tutor) {
+        return tutorRepository.getById(tutor);
     }
 
 

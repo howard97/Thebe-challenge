@@ -51,13 +51,13 @@ $(document).ready(function (){
                     $("#phoneNumber").val("")
                     $("#tutorCourse").val("")
 
-                } else if(data.data === 404){
-                    swal.fire("Info", data.message, "info");
+                } else if(data.data === 507){
+                    swal.fire("Warning", data.message, "warning");
                 } else {
                     swal.fire("Error", data.message, "error");
                 }
             }, error: function () {
-                swal.fire("Error", data.message, "error");
+                swal.fire("Error","Error Processing Your Application", "error");
             }
         });
     }

@@ -11,4 +11,5 @@ public interface ITutorService {
     List<Tutor> findAllTutors();
     Map<String, Object> saveTutorData(TutorDto formDto) throws Exception;
     ResponseEntity<Tutor> getTutorById(Long id);
+    Tutor getTutor(Long tutor);
 }

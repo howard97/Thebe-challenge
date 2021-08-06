@@ -21,7 +21,7 @@ import java.util.Map;
 @RequestMapping("/api/v1")
 public class TutorRestController {
     private final ITutorService tutorService;
-    private Logger logger = LogManager.getLogger(TutorRestController.class);
+    private final Logger logger = LogManager.getLogger(TutorRestController.class);
 
     @Autowired
     public TutorRestController(ITutorService tutorService) {

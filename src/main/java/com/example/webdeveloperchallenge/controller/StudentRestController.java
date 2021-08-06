@@ -2,7 +2,6 @@ package com.example.webdeveloperchallenge.controller;
 
 import com.example.webdeveloperchallenge.commons.enums.Responses;
 import com.example.webdeveloperchallenge.dto.StudentDto;
-import com.example.webdeveloperchallenge.dto.TutorDto;
 import com.example.webdeveloperchallenge.interfaces.IStudentService;
 import com.example.webdeveloperchallenge.model.Student;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -22,33 +21,11 @@ import java.util.Map;
 @RequestMapping("/api/v1")
 public class StudentRestController {
     private final IStudentService studentService;
-    private Logger logger = LogManager.getLogger(TutorRestController.class);
+    private final Logger logger = LogManager.getLogger(StudentRestController.class);
 
     @Autowired
     public StudentRestController(IStudentService studentService) {
         this.studentService = studentService;
-    }
-
-    /**
-     * method to Get All Students
-     * @Author: Howard Sakala
-     *
-     */
-    @GetMapping("/students")
-    public ResponseEntity<List<Student>> getAllStudents(){
-        List<Student> studentList = studentService.getAllStudent();
-        return ResponseEntity.ok(studentList);
-    }
-
-    /**
-     * method to Get a Student by id
-     * @Author: Howard Sakala
-     *
-     */
-    @GetMapping("/students/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable String id){
-        Long studentId = Long.parseLong(id);
-     return studentService.getStudentById(studentId);
     }
 
 
@@ -77,4 +54,27 @@ public class StudentRestController {
         }
         return response;
     }
+
+    /**
+     * method to Get All Students
+     * @Author: Howard Sakala
+     *
+     */
+    @GetMapping("/students")
+    public ResponseEntity<List<Student>> getAllStudents(){
+        List<Student> studentList = studentService.getAllStudent();
+        return ResponseEntity.ok(studentList);
+    }
+
+    /**
+     * method to Get a Student by id
+     * @Author: Howard Sakala
+     *
+     */
+    @GetMapping("/students/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable String id){
+        Long studentId = Long.parseLong(id);
+     return studentService.getStudentById(studentId);
+    }
+
 }

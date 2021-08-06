@@ -14,6 +14,7 @@
             <%--  ADD MENU INCLUDES --%>
             <jsp:include page="menus/studentMenu.jsp"/>
             <jsp:include page="menus/tutorMenu.jsp"/>
+            <jsp:include page="menus/chooseTutor.jsp"/>
         </ul>
     </div>
 </div>

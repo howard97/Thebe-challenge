@@ -47,7 +47,7 @@ public class StudentService implements IStudentService {
         Map<String,Object>response = new HashMap<>();
         if(getStudent(formDto.getEmail())){
             response.put( Responses.ResponseHeaderStatus, Responses.ResponseStatusError );
-            response.put( Responses.ResponseHeaderMessage, " is Already a member on the student populace!" );
+            response.put( Responses.ResponseHeaderMessage, formDto.getFirstName()+" " +formDto.getLastName() + " is Already a member of student populace!" );
             response.put( Responses.ResponseHeaderData, 507 );
             return response;
         }
@@ -60,7 +60,7 @@ public class StudentService implements IStudentService {
         studentRepository.save(student);
         //Notify the user that the data has been saved
         response.put( Responses.ResponseHeaderStatus, Responses.ResponseStatusSuccess );
-        response.put( Responses.ResponseHeaderMessage, formDto.getFirstName()+ " " + formDto.getLastName() + "Data has successfully been submitted!" );
+        response.put( Responses.ResponseHeaderMessage, formDto.getFirstName()+ " " + formDto.getLastName() + " Data has successfully been submitted!" );
         response.put( Responses.ResponseHeaderData, 1 );
 
         return response;

@@ -22,7 +22,7 @@ public class Student {
     private String lastName;
     @Basic
     @Column(name = "STUDENT_ID", nullable = false)
-    private Long studentNumber;
+    private String studentNumber;
     @Basic
     @Column(name = "EMAIL", nullable = false)
     private String email;

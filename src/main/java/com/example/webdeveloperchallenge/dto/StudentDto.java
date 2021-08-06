@@ -15,7 +15,7 @@ public class StudentDto {
     @NotNull
     private String lastName;
     @NotNull
-    private Long studentNumber;
+    private String studentNumber;
     @NotNull
     private String email;
     @NotNull

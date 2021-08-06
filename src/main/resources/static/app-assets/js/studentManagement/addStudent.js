@@ -26,7 +26,6 @@ $(document).ready(function (){
             email:$("#email").val(),
             phoneNumber:$("#phoneNumber").val()
         }
-        console.log(formData);
         $.ajax({
             type: 'POST',
             url: 'api/v1/students',
@@ -52,13 +51,13 @@ $(document).ready(function (){
                      $("#email").val("")
 
                 } else if(data.data === 507){
-                    swal.fire("Info", data.message, "info");
+                    swal.fire("Warning", data.message, "warning");
                 }
                 else {
                     swal.fire("Error", data.message, "error");
                 }
             }, error: function () {
-                swal.fire("Error", data.message, "error");
+                swal.fire("Error", "Error Processing Your Application", "error");
             }
         });
     }

@@ -1,8 +1,7 @@
 package com.example.webdeveloperchallenge.interfaces;
 
-import java.util.Map;
+import com.example.webdeveloperchallenge.model.TutorStudents;
 
 public interface ITutorStudentService {
-    Map<String, Object> assignTutorToStudent(String id);
-
+    TutorStudents assignTutorToStudent(Long studentId, Long tutorId);
 }
